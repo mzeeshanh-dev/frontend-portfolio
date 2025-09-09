@@ -1,0 +1,162 @@
+/* Global Reset */
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Hero Container */
+.hero-container {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  padding-top: 25px;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 90px 0 0 20px;
+  z-index: 99;
+}
+
+.social-icons a img {
+  width: 24px;
+  transition: transform 0.2s ease;
+}
+
+/* Content Styling */
+.hello-text {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.name-animation {
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.content-container {
+  position: relative;
+  padding: 12px;
+  margin-top: 0;
+  line-height: 1.1;
+  transform: translateY(-80px);
+}
+
+.content-container .job-title {
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 2.5;
+}
+
+.briefing {
+  padding: 3px;
+  width: fit-content;
+  font-weight: 300;
+}
+
+/* Contact Button */
+.btnContact a {
+  position: absolute;
+  background: #6e57e0;
+  padding: 15px 20px;
+  border-radius: 9px;
+  color: #fff;
+  font-size: 15px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 12px;
+  z-index: 199;
+  transition: opacity 0.2s ease;
+}
+
+.btnContact img {
+  width: 13px;
+}
+
+/* Blob Image */
+.blob-image img {
+  width: 200px;
+  height: 200px;
+  margin: 0 0 100px 50px;
+  transform: translateY(-50px);
+  object-fit: cover;
+}
+
+/* ========================
+   Laptop Screens
+======================== */
+@media screen and (min-width: 1024px) {
+  .hero-section {
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100vh;
+  }
+
+  .hero-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .content-container {
+    margin-top: 160px;
+  }
+
+  .briefing {
+    width: 452px;
+  }
+
+  .blob-image img {
+    width: 280px;
+    height: 280px;
+    margin-left: 50px;
+    transform: translateY(80px);
+  }
+
+  .social-icons {
+    position: relative;
+  }
+
+  .social-icons a img:hover {
+    transform: scale(1.4);
+  }
+
+  .btnContact a:hover {
+    opacity: 0.8;
+  }
+}
+
+/* ========================
+   Tablets
+======================== */
+@media (max-width: 1024px) {
+  .responsive-image {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+/* ========================
+   Small Phones
+======================== */
+@media (max-width: 480px) {
+  .responsive-image {
+    width: 150px;
+    height: 150px;
+  }
+}

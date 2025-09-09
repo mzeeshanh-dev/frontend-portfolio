@@ -1,0 +1,226 @@
+.services-container {
+    min-height: 100vh;
+    padding: 60px 20px;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.services-title {
+    text-align: center;
+    /* font-size: 2.5rem; */
+    font-weight: 700;
+    /* font-size: 2rem; */
+    margin-bottom: 50px;
+    position: relative;
+    /* Increased margin for better separation */
+}
+
+.services-title::before {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    left: center;
+    text-align: center;
+    align-items: center;
+    width: 145px;
+    background: #7F6CE0;
+    height: 1.6px;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1300px;
+    /* margin: 0 auto; */
+    margin-top: 140px;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+}
+
+/* Creative staggered layout with pseudo-elements for depth */
+.service-card {
+    backdrop-filter: blur(100px);
+    /* Stronger blur to obscure background */
+    border: 1px solid grey;
+    border-radius: 12px;
+    /* Slightly larger radius for modern look */
+    padding: 25px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(110, 87, 224, 0.1);
+    /* Subtle purple overlay */
+    z-index: -1;
+    transform: rotate(20deg);
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    /* Increased lift for emphasis */
+    box-shadow: 0 0 25px rgba(110, 87, 224, 0.4);
+    /* Stronger shadow */
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    /* Slightly larger icon */
+    color: #6E57E0;
+    margin-bottom: 15px;
+}
+
+.card-title {
+    font-size: 1.6rem;
+    /* Slightly larger title */
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.view-more {
+    font-size: 1rem;
+    /* Slightly larger text */
+    text-decoration: none;
+    color: #6E57E0;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    /* Space between text and icon */
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backdrop-filter: blur(100px);
+    /* Stronger blur for overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    backdrop-filter: blur(100px);
+    /* Stronger blur for modal content */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 25px;
+    width: 90%;
+    max-width: 600px;
+    min-height: 70vh;
+    position: relative;
+    box-shadow: 0 0 20px rgba(110, 87, 224, 0.3);
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
+    color: #6E57E0;
+    /* Ensure icon color matches theme */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Subtle background */
+    border-radius: 50%;
+    /* Circular background */
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.modal-close:hover {
+    background-color: rgba(110, 87, 224, 0.2);
+    /* Darker purple on hover */
+    color: #fff;
+    /* White icon on hover for contrast */
+}
+
+.modal-icon {
+    font-size: 2.5rem;
+    /* Larger icon */
+    color: #6E57E0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-title {
+    font-size: 2rem;
+    /* Larger title */
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-description {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.modal-description li {
+    margin-bottom: 15px;
+    /* Increased spacing */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .services-container {
+        padding: 40px 10px;
+        
+    }
+
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .service-card {
+        padding: 15px;
+    }
+
+    .card-title {
+        font-size: 1.3rem;
+    }
+
+    .modal-content {
+        padding: 15px;
+        max-width: 90%;
+        min-height: 60vh;
+    }
+
+    .modal-close {
+        width: 25px;
+        height: 25px;
+        font-size: 1.3rem;
+    }
+}

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://m-zeeshan-haider.vercel.app/sitemap.xml

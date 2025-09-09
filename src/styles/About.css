@@ -1,0 +1,118 @@
+/* Mobile-First Styles */
+.about-section {
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+  text-align: center;
+  padding-top: 60px;
+  min-height: 100vh;
+  position: relative;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Buttons */
+.btnGetInTouch,
+.btnResume {
+  display: inline-block;
+  padding: 10px 12px;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: #6e57e0;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 6px;
+  transition: transform 0.1s ease, opacity 0.2s ease-in;
+  text-decoration: none;
+}
+
+.btnResume:hover {
+  text-decoration: underline;
+}
+
+.btnGetInTouch:active,
+.btnResume:active {
+  transform: scale(0.9);
+}
+
+/* About Boxes Layout */
+.about-boxes {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 60px;
+  padding: 12px;
+}
+
+/* Text Styles */
+.about-content .content {
+  text-align: justify;
+  padding: 20px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.about-content .role {
+  padding-top: 12px;
+  color: #7f6ce0;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* Section Heading */
+.heading {
+  position: relative;
+}
+
+.heading::before {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 1.6px;
+  background: #7f6ce0;
+}
+
+/* Larger Screens */
+@media screen and (min-width: 1024px) {
+  .about-container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 72px;
+    padding: 35px;
+  }
+
+  .about-content {
+    width: 550px;
+  }
+
+  .about-content .content {
+    margin-bottom: 4px;
+  }
+
+  .about-boxes {
+    margin-top: 0;
+    padding: 0;
+  }
+
+  .about-content .role {
+    font-size: 30px;
+  }
+
+  .btnGetInTouch:hover,
+  .btnResume:hover {
+    opacity: 0.8;
+  }
+
+
+}

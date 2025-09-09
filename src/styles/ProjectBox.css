@@ -1,0 +1,100 @@
+.container {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  background: rgba(8, 8, 8, 0.1);
+  border-radius: 30px;
+  width: 320px;
+  height: 450px;
+  padding: 12px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  backdrop-filter: blur(30px); /* ⚡ Much lighter blur */
+  -webkit-backdrop-filter: blur(30px);
+  will-change: transform; /* ⚡ GPU acceleration */
+}
+
+.container:hover {
+  transform: translateY(-8px); /* Slightly less movement for smoother FPS */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.project-img {
+  width: 100%;
+  max-width: 290px;
+  height: 180px;
+  border-radius: 12px;
+  object-fit: cover; /* Better image rendering */
+  display: block;
+}
+
+.upper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding-bottom: 8px;
+}
+
+.skill-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+.lang {
+  border: 1px solid #7F6CE0;
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 11px;
+  width: 70px;
+  text-align: center;
+  font-weight: bold;
+  color: #7F6CE0;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px); /* ⚡ Reduced heavy blur */
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  will-change: transform, background-color;
+}
+
+.lang:hover {
+  transform: translateY(-2px);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.lower {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 10px;
+}
+
+.project-title {
+  font-size: 22px;
+  margin-bottom: 5px;
+  color: grey;
+  font-weight: bold;
+}
+
+.project-description {
+  font-size: 16px;
+  text-align: justify;
+}
+
+.btnLive button {
+  background: #6E57E0;
+  color: white;
+  padding: 10px 22px;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  border-radius: 9px;
+  margin-top: 12px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.btnLive button:hover {
+  opacity: 0.85;
+}
