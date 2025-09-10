@@ -67,17 +67,18 @@
 }
 
 /* Section Heading */
-.heading {
+.about-heading {
   position: relative;
+  font-size: 1.5rem;
 }
 
-.heading::before {
+.about-heading::before {
   content: "";
   position: absolute;
   bottom: -7px;
   left: 50%;
   transform: translateX(-50%);
-  width: 110px;
+  width: 102px;
   height: 1.6px;
   background: #7f6ce0;
 }
@@ -92,6 +93,12 @@
     padding: 35px;
   }
 
+.about-heading{
+  font-size: 2rem;
+}
+  .about-heading::before{
+     width: 150px;
+  }
   .about-content {
     width: 550px;
   }

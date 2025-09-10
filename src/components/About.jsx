@@ -7,10 +7,10 @@ import user from "../assets/images/user.webp";
 export default function About() {
   return (
     <section className="about-section" id="about">
-      <h1 className="heading">About Me</h1>
+      <h1 className="about-heading">About Me</h1>
 
       <div className="about-container">
-        {/* About Content */}
+      
         <div className="about-content">
           <p className="role">Passionate Web Developer</p>
 

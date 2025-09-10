@@ -72,7 +72,7 @@ const Services = () => {
 
     return (
         <div className="services-container">
-            <h1 className="services-title">My Services</h1>
+            <h1 className="service-heading">My Services</h1>
             <div className="cards-grid">
                 {services.map((service, index) => (
                     <div

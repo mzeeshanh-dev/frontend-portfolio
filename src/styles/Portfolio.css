@@ -1,3 +1,4 @@
+/* Desktop Approach first */
 .project-section {
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
@@ -5,10 +6,28 @@
     min-height: 180vh;
 }
 
-.project-section .heading::before {
-    width: 102px;
+
+
+.portfolio-heading {
     text-align: center;
+    position: relative;
 }
+
+
+.portfolio-heading::before {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    left: center;
+    text-align: center;
+    align-items: center;
+    width: 130px;
+    background: #7F6CE0;
+    height: 1.6px;
+
+}
+
+
 
 
 .project-container {
@@ -28,6 +47,15 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+    }
+
+    .portfolio-heading{
+        font-size: 1.5rem;
+    }
+
+    .portfolio-heading::before{
+        width: 100px;
+
     }
 
 }

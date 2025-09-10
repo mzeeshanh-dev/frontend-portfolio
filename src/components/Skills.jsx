@@ -6,7 +6,7 @@ import { skillsData } from '../data/skillsData';
 function Skills() {
   return (
     <section className="skill-section">
-      <h1 className="heading">My Skills</h1>
+      <h1 className="skill-heading">My Skills</h1>
       <div className="skill-container">
         {skillsData.map((category, index) => (
           <SkillCard key={index} {...category} />

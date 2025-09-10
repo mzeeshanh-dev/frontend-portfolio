@@ -52,7 +52,7 @@ const projects = [
 export default function Portfolio() {
   return (
     <section className="project-section">
-      <h1 className="heading">Portfolio</h1>
+      <h1 className="portfolio-heading">Portfolio</h1>
 
       <div className="project-container">
         {projects.map((project, index) => (

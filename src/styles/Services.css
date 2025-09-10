@@ -1,3 +1,4 @@
+/* Desktop Approach first */
 .services-container {
     min-height: 100vh;
     padding: 60px 20px;
@@ -6,24 +7,22 @@
     overflow: hidden;
 }
 
-.services-title {
+.service-heading {
     text-align: center;
-    /* font-size: 2.5rem; */
-    font-weight: 700;
-    /* font-size: 2rem; */
+   font-size: 2rem;
     margin-bottom: 50px;
     position: relative;
-    /* Increased margin for better separation */
+    
 }
 
-.services-title::before {
+.service-heading::before {
     content: '';
     position: absolute;
     bottom: -7px;
     left: center;
     text-align: center;
     align-items: center;
-    width: 145px;
+    width: 183px;
     background: #7F6CE0;
     height: 1.6px;
 }
@@ -222,5 +221,13 @@
         width: 25px;
         height: 25px;
         font-size: 1.3rem;
+    }
+
+
+    .service-heading{
+        font-size: 1.5rem;
+    }
+    .service-heading::before{
+        width: 132px;
     }
 }
