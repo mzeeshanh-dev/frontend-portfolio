@@ -6,6 +6,7 @@ import About from "./components/About";
 import Skills from "./components/Skills";
 import Services from "./components/Services";
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 const Portfolio = lazy(() => import("./components/Portfolio"));
 const Contact = lazy(() => import("./components/Contact"));
@@ -45,6 +46,8 @@ const App = () => {
         </section>
       </main>
       <Analytics/>
+      <SpeedInsights/>
+      
     </>
   );
 };
