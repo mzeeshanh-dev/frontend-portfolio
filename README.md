@@ -1,12 +1,62 @@
-# React + Vite
+# 🌐 Personal Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive **Portfolio Website** built with **React.js** and **Tailwind CSS**.  
+It showcases my **skills, projects, and achievements** as a developer, featuring smooth animations and a professional design to leave a lasting impression.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
 
-## Expanding the ESLint configuration
+🌐 [Live Portfolio](https://m-zeeshan-haider.vercel.app/)  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📸 Features
+
+- 🧑‍💻 Showcases **skills, projects, and resume**
+- 🎨 Stylish design with **Tailwind CSS**
+- ✨ Smooth animations and transitions
+- 📱 Fully responsive (mobile, tablet, desktop)
+- 🔗 Easy navigation with **React Router**
+- 🌟 Icons integrated with **react-icons**
+- ⚡ Optimized and fast loading performance
+
+---
+
+## 🛠️ Tech Stack
+
+| Frontend      | Styling       | Animations | Hosting |
+|---------------|--------------|------------|---------|
+| React.js      | Tailwind CSS | Framer Motion / Custom CSS | Vercel |
+| React Icons   |              |            |         |
+
+---
+
+
+
+
+
+
+
+
+---
+
+## ✍️ Author
+
+**Zeeshan Haider**  
+📧 zh012948@gmail.com  
+🌐 [Portfolio](https://m-zeeshan-haider.vercel.app/)  
+🐙 [GitHub](https://github.com/zh012948)  
+💼 [LinkedIn](https://www.linkedin.com/in/m-zeeshan-haider-606bb3284/)
+
+---
+
+## 🤝 Support
+
+If you liked my portfolio, consider giving the repo a ⭐️ on GitHub. It motivates me to keep improving and building awesome projects.  
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
