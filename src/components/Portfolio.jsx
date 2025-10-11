@@ -54,7 +54,7 @@ const projects = [
     title: "Web Scrapper",
     skills: ["HTML", "CSS", "JavaScript", "Node", "Axios","Cheerio","Express","Cors"],
     description:
-      "Built a dynamic quote scraper with Node.js, Axios, and Cheerio, connected to an interactive HTML/CSS frontend with hover-effect cards and a Fetch Quotes button that retrieves live web data instantly.",
+      "Built a dynamic quote scraper with Node.js, Axios, and Cheerio, connected to interactive frontend with hoverEffects cards and Fetch Quotes instantly.",
     link: "https://web-scrapper-xmlj.onrender.com/",
   }
 ];

@@ -1,8 +1,7 @@
 /* Contact.css */
 .contact-section {
-    min-height: 90vh;
+    min-height: 100vh;
     padding: 60px 20px;
-
     font-family: 'Segoe UI', sans-serif;
 }
 
