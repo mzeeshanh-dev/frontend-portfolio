@@ -1,14 +1,11 @@
-import React from "react";
 import "../styles/Portfolio.css";
 import ProjectBox from "./ProjectBox";
 
-// ✅ Correct way: use URL for static assets
 import img1 from "../assets/projects/project1.webp";
 import img2 from "../assets/projects/project2.webp";
 import img3 from "../assets/projects/project3.webp";
 import img4 from "../assets/projects/project4.webp";
 import img5 from "../assets/projects/project5.webp";
-
 
 const projects = [
   {

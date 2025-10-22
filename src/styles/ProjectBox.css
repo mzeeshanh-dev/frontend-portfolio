@@ -1,6 +1,6 @@
 .container {
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background: rgba(8, 8, 8, 0.1);
   border-radius: 30px;
   width: 320px;
@@ -8,13 +8,13 @@
   padding: 12px;
   cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  backdrop-filter: blur(30px); /* ⚡ Much lighter blur */
+  backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
-  will-change: transform; /* ⚡ GPU acceleration */
+  will-change: transform;
 }
 
 .container:hover {
-  transform: translateY(-8px); /* Slightly less movement for smoother FPS */
+  transform: translateY(-8px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
@@ -23,7 +23,7 @@
   max-width: 290px;
   height: 180px;
   border-radius: 12px;
-  object-fit: cover; /* Better image rendering */
+  object-fit: cover;
   display: block;
 }
 
@@ -43,14 +43,14 @@
 }
 
 .lang {
-  border: 1px solid #7F6CE0;
+  border: 1px solid #7f6ce0;
   border-radius: 10px;
   padding: 5px;
   font-size: 11px;
   width: 70px;
   text-align: center;
   font-weight: bold;
-  color: #7F6CE0;
+  color: #7f6ce0;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px); /* ⚡ Reduced heavy blur */
   -webkit-backdrop-filter: blur(12px);
@@ -83,7 +83,7 @@
 }
 
 .btnLive button {
-  background: #6E57E0;
+  background: #6e57e0;
   color: white;
   padding: 10px 22px;
   font-size: 15px;

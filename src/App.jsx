@@ -35,12 +35,12 @@ const App = () => {
           <Services />
         </section>
         <section id="portfolio">
-          <Suspense fallback={<div className="text-center p-6">Loading...</div>}>
+          <Suspense fallback={<div style={style.textCenter}>Loading...</div>} style>
             <Portfolio />
           </Suspense>
         </section>
         <section id="contact">
-          <Suspense fallback={<div className="text-center p-6">Loading...</div>}>
+          <Suspense fallback={<div style={style.textCenter}>Loading...</div>}>
             <Contact />
           </Suspense>
         </section>
@@ -53,3 +53,10 @@ const App = () => {
 };
 
 export default App;
+
+const style={
+  textCenter:{
+    textAlign:"center",
+    marginBottom:"30px",
+  }
+}
