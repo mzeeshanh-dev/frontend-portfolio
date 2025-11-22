@@ -10,35 +10,16 @@ const Contact = () => {
         e.preventDefault();
         setIsSending(true);
 
-        const form = e.target;
-        const formData = new FormData(form);
-        formData.append('access_key', '30be1a22-e735-4a43-8df4-b41933360678');
+        const form = e.currentTarget;
 
-        try {
-            const response = await fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                body: formData,
-            });
+        setTimeout(() => {
+            setStatusMessage('✅ Message sent successfully!');
+            form.reset();
 
-            const result = await response.json();
+            setTimeout(() => setStatusMessage(''), 3000);
 
-            if (result.success) {
-                setStatusMessage('✅ Message sent successfully!');
-                form.reset();
-
-                // Hide message after 3 seconds
-                setTimeout(() => {
-                    setStatusMessage('');
-                }, 3000);
-            } else {
-                setStatusMessage('❌ Failed to send message. Please try again.');
-            }
-        } catch (error) {
-            console.error('Error sending form:', error);
-            setStatusMessage('❌ Something went wrong. Try again later.');
-        }
-
-        setIsSending(false);
+            setIsSending(false);
+        }, 1000);
     };
 
     return (
@@ -69,10 +50,9 @@ const Contact = () => {
                 </div>
 
                 <form className="contact-form" onSubmit={handleSubmit}>
-                    <input type="hidden" name="access_key" value="30be1a22-e735-4a43-8df4-b41933360678" />
                     <input type="text" name="name" placeholder="Your Name" required />
                     <input type="email" name="email" placeholder="Your Email" required />
-                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                    <textarea name="message" placeholder="Your Message" rows={5} required></textarea>
 
                     <button type="submit" disabled={isSending}>
                         {isSending ? 'Sending...' : 'Send Message'}

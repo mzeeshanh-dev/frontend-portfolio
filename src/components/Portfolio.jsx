@@ -6,8 +6,21 @@ import img2 from "../assets/projects/project2.webp";
 import img3 from "../assets/projects/project3.webp";
 import img4 from "../assets/projects/project4.webp";
 import img5 from "../assets/projects/project5.webp";
+import img6 from "../assets/projects/project6.webp"
+
 
 const projects = [
+  {
+    image: img6,
+    title: "Uptime Pulse",
+    skills: [
+      "Next Js", "Shadcn-UI", "Tailwind", "Node Js",
+      "MongoDB", "Mongoose", "Rest Api", "node-cron"
+    ],
+    description:
+      "Implemented a URL uptime tracker with precise cron scheduling, live status updates, protected dashboard access, and full CRUD over monitored endpoints.",
+    link: "https://uptime-pulse-zeeshan.vercel.app/",
+  },
   {
     image: img4,
     title: "Expense Tracker",
@@ -49,7 +62,7 @@ const projects = [
   {
     image: img5,
     title: "Web Scrapper",
-    skills: ["HTML", "CSS", "JavaScript", "Node", "Axios","Cheerio","Express","Cors"],
+    skills: ["HTML", "CSS", "JavaScript", "Node", "Axios", "Cheerio", "Express", "Cors"],
     description:
       "Built a dynamic quote scraper with Node.js, Axios, and Cheerio, connected to interactive frontend with hoverEffects cards and Fetch Quotes instantly.",
     link: "https://web-scrapper-xmlj.onrender.com/",
