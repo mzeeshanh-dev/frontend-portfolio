@@ -15,10 +15,10 @@ const projects = [
     title: "Uptime Pulse",
     skills: [
       "Next Js", "Shadcn-UI", "Tailwind", "Node Js",
-      "MongoDB", "Mongoose", "Rest Api", "node-cron"
+      "MongoDB", "JWT", "Rest Apis", "node-cron"
     ],
     description:
-      "Implemented a URL uptime tracker with precise cron scheduling, live status updates, protected dashboard access, and full CRUD over monitored endpoints.",
+      "Built a URL uptime tracker with 5-minute automated pings, live status updates, secure dashboard access, and full CRUD control for monitored endpoints.",
     link: "https://uptime-pulse-zeeshan.vercel.app/",
   },
   {
