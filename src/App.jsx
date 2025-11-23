@@ -45,18 +45,18 @@ const App = () => {
           </Suspense>
         </section>
       </main>
-      <Analytics/>
-      <SpeedInsights/>
-      
+      <Analytics />
+      <SpeedInsights />
+
     </>
   );
 };
 
 export default App;
 
-const style={
-  textCenter:{
-    textAlign:"center",
-    marginBottom:"30px",
+const style = {
+  textCenter: {
+    textAlign: "center",
+    marginBottom: "30px",
   }
 }

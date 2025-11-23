@@ -3,7 +3,7 @@
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
   text-align: center;
-  padding-top: 60px;
+  margin-top: 50px;
   min-height: 100vh;
   position: relative;
 }
@@ -93,12 +93,14 @@
     padding: 35px;
   }
 
-.about-heading{
-  font-size: 2rem;
-}
-  .about-heading::before{
-     width: 150px;
+  .about-heading {
+    font-size: 2rem;
   }
+
+  .about-heading::before {
+    width: 150px;
+  }
+
   .about-content {
     width: 550px;
   }

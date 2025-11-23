@@ -6,12 +6,12 @@ export default function Navbar() {
   const [darkMode, setDarkMode] = useState(true);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [hideNavbar, setHideNavbar] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   const canvasRef = useRef(null);
   const lastScrollY = useRef(0);
   const navbarHeight = 60;
 
-  // 🎨 Star Animation
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -67,7 +67,7 @@ export default function Navbar() {
     };
 
     const animate = () => {
-      twinkle(); // Instant update for smoother toggle
+      twinkle();
       drawStars();
       animationFrameId = requestAnimationFrame(animate);
     };
@@ -82,7 +82,6 @@ export default function Navbar() {
     };
   }, [darkMode]);
 
-  // 🌗 Apply Dark Mode Styles Instantly
   useEffect(() => {
     const bg = darkMode ? "transparent" : "#fff";
     const color = darkMode ? "#fff" : "#000";
@@ -92,18 +91,31 @@ export default function Navbar() {
     document.body.classList.toggle("dark-mode", darkMode);
   }, [darkMode]);
 
-  // 📜 Hide Navbar on Scroll
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
       setHideNavbar(y > lastScrollY.current && y > 50);
       lastScrollY.current = y;
+
+      const sections = ["home", "about", "skills", "services", "portfolio", "contact"];
+      const scrollPosition = window.scrollY + navbarHeight + 10;
+
+      for (const section of sections) {
+        const el = document.getElementById(section);
+        if (el) {
+          if (
+            scrollPosition >= el.offsetTop &&
+            scrollPosition < el.offsetTop + el.offsetHeight
+          ) {
+            setActiveSection(section);
+          }
+        }
+      }
     };
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // 🎯 Nav Items
   const navItems = [
     { icon: "bx-home-circle", label: "Home", to: "#home" },
     { icon: "bx-user-circle", label: "About", to: "#about" },
@@ -117,13 +129,23 @@ export default function Navbar() {
   const linkColor = darkMode ? "#fff" : "#191627";
   const hoverColor = "#6E57E0";
 
+  const handleClick = (to) => {
+    const id = to.substring(1);
+    const el = document.getElementById(id);
+    if (el) {
+      const top = el.offsetTop - navbarHeight;
+      window.scrollTo({ top, behavior: "smooth" });
+      setActiveSection(id);
+      setMenuOpen(false);
+    }
+  };
+
   return (
     <>
       <canvas ref={canvasRef} className="star-canvas" />
       <div
-        className={`navbar ${darkMode ? "dark-mode" : ""} ${
-          hideNavbar ? "hidden" : ""
-        }`}
+        className={`navbar ${darkMode ? "dark-mode" : ""} ${hideNavbar ? "hidden" : ""
+          }`}
         style={{
           backgroundColor: navbarBg,
           borderTop: `1px solid ${darkMode ? "#444" : "#ccc"}`,
@@ -131,14 +153,11 @@ export default function Navbar() {
           transition: "background-color 0.3s ease, transform 0.3s ease",
         }}
       >
-        {/* Logo */}
         <div className="logo">Zeeshan</div>
 
-        {/* Nav Links */}
         <div
-          className={`navlinks ${menuOpen ? "active" : ""} ${
-            darkMode ? "dark-mode" : ""
-          }`}
+          className={`navlinks ${menuOpen ? "active" : ""} ${darkMode ? "dark-mode" : ""
+            }`}
           style={{ backgroundColor: navbarBg, transition: "0.3s ease" }}
         >
           <ul>
@@ -148,9 +167,18 @@ export default function Navbar() {
                   href={to}
                   onMouseEnter={() => setHoveredIndex(i)}
                   onMouseLeave={() => setHoveredIndex(null)}
-                  onClick={() => setMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleClick(to);
+                  }}
+                  className={activeSection === to.substring(1) ? "active" : ""}
                   style={{
-                    color: hoveredIndex === i ? hoverColor : linkColor,
+                    color:
+                      activeSection === to.substring(1)
+                        ? hoverColor
+                        : hoveredIndex === i
+                          ? hoverColor
+                          : linkColor,
                     transition: "color 0.2s ease",
                   }}
                 >
@@ -158,7 +186,12 @@ export default function Navbar() {
                     className={`bx ${icon}`}
                     style={{
                       fontSize: 24,
-                      color: hoveredIndex === i ? hoverColor : linkColor,
+                      color:
+                        activeSection === to.substring(1)
+                          ? hoverColor
+                          : hoveredIndex === i
+                            ? hoverColor
+                            : linkColor,
                       transition: "color 0.2s ease",
                     }}
                   ></i>

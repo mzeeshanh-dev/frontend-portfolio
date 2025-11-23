@@ -51,9 +51,7 @@ body:not(.dark-mode) {
     padding: 15px;
     z-index: 1000;
     transition: transform 0.3s ease;
-
 }
-
 
 .navbar.dark-mode {
     backdrop-filter: blur(10px);
@@ -82,10 +80,38 @@ body:not(.dark-mode) {
     -webkit-backdrop-filter: blur(10px);
 }
 
+/* Updated links for smooth underline */
 .navbar .navlinks ul li a {
+    position: relative;
+    /* Needed for underline pseudo-element */
     color: white;
     text-decoration: none;
-    transition: 0.12s ease;
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+
+/* Underline effect */
+.navbar .navlinks ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    /* distance from text */
+    width: 0;
+    height: 2px;
+    /* thickness of underline */
+    background-color: #6E57E0;
+    /* underline color */
+    transition: width 0.3s ease;
+}
+
+.navbar .navlinks ul li a:hover::after,
+.navbar .navlinks ul li a.active::after {
+    width: 100%;
+}
+
+.navbar .navlinks ul li a:hover {
+    color: #6E57E0;
 }
 
 .navbar ul {
@@ -100,7 +126,7 @@ body:not(.dark-mode) {
     font-size: 24px;
 }
 
-.navlinks ul li a:hover {
+.navlinks ul li a:hover i {
     color: #6E57E0;
 }
 

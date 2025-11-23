@@ -3,7 +3,6 @@ import '../styles/SkillCard.css';
 
 const SkillCard = React.memo(
   function SkillCard({ leftIcon, role, skills = [], columns = 3 }) {
-    // Memoize grid style so it's not recalculated on every render
     const gridStyle = useMemo(
       () => ({ gridTemplateColumns: `repeat(${columns}, 1fr)` }),
       [columns]
@@ -11,7 +10,6 @@ const SkillCard = React.memo(
 
     return (
       <div className="skill-card-container">
-        {/* Header */}
         <div className="top">
           <div className="skill-icon-background">
             <img src={leftIcon} alt={`${role} icon`} loading="lazy" />
@@ -19,7 +17,6 @@ const SkillCard = React.memo(
           <p className="title">{role}</p>
         </div>
 
-        {/* Skills Grid */}
         <div className="bottom" style={gridStyle}>
           {skills.map((skill, index) => (
             <div className="skill-box" key={skill.id || index}>
@@ -37,7 +34,6 @@ const SkillCard = React.memo(
     );
   },
   (prevProps, nextProps) => {
-    // Prevent re-renders if props are the same
     return (
       prevProps.leftIcon === nextProps.leftIcon &&
       prevProps.role === nextProps.role &&

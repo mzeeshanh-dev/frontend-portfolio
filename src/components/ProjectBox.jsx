@@ -5,7 +5,6 @@ const ProjectBox = memo(function ProjectBox({ image, skills = [], title, descrip
   return (
     <div className="container">
       <div className="upper">
-        {/* 🔥 Lazy load + async decode for faster rendering */}
         <img
           src={image}
           alt={title || "Project"}
@@ -14,7 +13,6 @@ const ProjectBox = memo(function ProjectBox({ image, skills = [], title, descrip
           decoding="async"
         />
 
-        {/* 🔥 Render only if skills exist */}
         {skills?.length > 0 && (
           <div className="skill-list">
             {skills.map((skill, index) => (
