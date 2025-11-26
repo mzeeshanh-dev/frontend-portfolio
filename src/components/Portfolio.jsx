@@ -5,7 +5,6 @@ import img1 from "../assets/projects/project1.webp";
 import img2 from "../assets/projects/project2.webp";
 import img3 from "../assets/projects/project3.webp";
 import img4 from "../assets/projects/project4.webp";
-import img5 from "../assets/projects/project5.webp";
 import img6 from "../assets/projects/project6.webp"
 
 
@@ -59,14 +58,6 @@ const projects = [
       "Built a responsive e-commerce site with filtering, LocalStorage data handling, and WhatsApp/email order messaging using HTML, CSS, JS, and JSON.",
     link: "https://kasana-watches.vercel.app/",
   },
-  {
-    image: img5,
-    title: "Web Scrapper",
-    skills: ["HTML", "CSS", "JavaScript", "Node", "Axios", "Cheerio", "Express", "Cors"],
-    description:
-      "Built a dynamic quote scraper with Node.js, Axios, and Cheerio, connected to interactive frontend with hoverEffects cards and Fetch Quotes instantly.",
-    link: "https://web-scrapper-xmlj.onrender.com/",
-  }
 ];
 
 export default function Portfolio() {
