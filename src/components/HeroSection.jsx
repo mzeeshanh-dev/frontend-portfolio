@@ -16,7 +16,7 @@ export default function HeroSection() {
       title: "LinkedIn profile",
     },
     {
-      href: "https://github.com/zh012948/",
+      href: "https://github.com/mzeeshanh-dev/",
       img: github,
       alt: "GitHub",
       title: "GitHub profile",
@@ -63,7 +63,7 @@ export default function HeroSection() {
           </div>
           <p className="briefing">
             Strong expertise in full-stack MERN dev. Building scalable,
-             responsive, and user-friendly web applications from frontend to backend.
+            responsive, and user-friendly web applications from frontend to backend.
           </p>
           <div className="btnContact">
             <a href="#contact">
