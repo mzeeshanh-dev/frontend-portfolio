@@ -6,7 +6,7 @@ import img2 from "../assets/projects/project2.webp";
 import img3 from "../assets/projects/project3.webp";
 import img4 from "../assets/projects/project4.webp";
 import img6 from "../assets/projects/project6.webp"
-
+import img7 from "../assets/projects/project7.webp"
 
 const projects = [
   {
@@ -19,6 +19,18 @@ const projects = [
     description:
       "Built a URL uptime tracker with 5-minute automated pings, live status updates, secure dashboard access, and full CRUD control for monitored endpoints.",
     link: "https://uptime-pulse-zeeshan.vercel.app/",
+  },
+
+  {
+    image: img7,
+    title: "DriveX",
+    skills: [
+      "React Js", "Framer", "Tailwind", "Node Js",
+      "Express", "Cloudinary", "MongoDB", "Mongoose"
+    ],
+    description:
+      "Built a full-stack car rental platform with dynamic car listings, seamless booking flow, secure admin dashboard, and complete CRUD control for cars, bookings, and earnings management.",
+    link: "https://drive-x-git.vercel.app/",
   },
   {
     image: img4,
