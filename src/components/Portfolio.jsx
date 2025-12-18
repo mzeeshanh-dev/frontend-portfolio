@@ -1,12 +1,14 @@
+import React, { useState, useEffect } from "react";
 import "../styles/Portfolio.css";
 import ProjectBox from "./ProjectBox";
+import ProjectSkeleton from "./ProjectSkeleton";
 
 import img1 from "../assets/projects/project1.webp";
 import img2 from "../assets/projects/project2.webp";
 import img3 from "../assets/projects/project3.webp";
 import img4 from "../assets/projects/project4.webp";
-import img6 from "../assets/projects/project6.webp"
-import img7 from "../assets/projects/project7.webp"
+import img6 from "../assets/projects/project6.webp";
+import img7 from "../assets/projects/project7.webp";
 
 const projects = [
   {
@@ -19,8 +21,8 @@ const projects = [
     description:
       "Built a URL uptime tracker with 5-minute automated pings, live status updates, secure dashboard access, and full CRUD control for monitored endpoints.",
     link: "https://uptime-pulse-zeeshan.vercel.app/",
+    codeLink: "https://github.com/mzeeshanh-dev/UptimePulse",
   },
-
   {
     image: img7,
     title: "DriveX",
@@ -31,6 +33,7 @@ const projects = [
     description:
       "Built a full-stack car rental platform with dynamic car listings, seamless booking flow, secure admin dashboard, and complete CRUD control for cars, bookings, and earnings management.",
     link: "https://drive-x-git.vercel.app/",
+    codeLink: "https://github.com/mzeeshanh-dev/driveX-Frontend/",
   },
   {
     image: img4,
@@ -42,6 +45,7 @@ const projects = [
     description:
       "Built a responsive expense tracker with Firebase auth, real-time updates, budget control, and intuitive UI using React, TypeScript, and Tailwind CSS.",
     link: "https://expense-tracker-firebase-eosin.vercel.app/",
+    codeLink: "https://github.com/mzeeshanh-dev/expense-tracker-firebase",
   },
   {
     image: img1,
@@ -53,6 +57,7 @@ const projects = [
     description:
       "Built a web app for image format conversion with real-time processing, secure file upload, downloads, and error handling.",
     link: "https://image-converter-tkkn.onrender.com/",
+    codeLink: "https://github.com/mzeeshanh-dev/image-converter",
   },
   {
     image: img2,
@@ -61,6 +66,7 @@ const projects = [
     description:
       "Built an animated coffee shop website with React and CSS, featuring smooth UI, interactive user experience, and modern design aesthetics.",
     link: "https://bean-scene-xi.vercel.app/",
+    codeLink: "https://github.com/mzeeshanh-dev/figma-to-code-coffee-bean",
   },
   {
     image: img3,
@@ -69,25 +75,45 @@ const projects = [
     description:
       "Built a responsive e-commerce site with filtering, LocalStorage data handling, and WhatsApp/email order messaging using HTML, CSS, JS, and JSON.",
     link: "https://kasana-watches.vercel.app/",
+    codeLink: "https://github.com/mzeeshanh-dev/eccomerce",
   },
 ];
 
 export default function Portfolio() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // This simulates the time it takes for images/data to load
+    // 2500ms (2.5 seconds) is usually the sweet spot for a smooth feel
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="project-section">
       <h1 className="portfolio-heading">Portfolio</h1>
 
       <div className="project-container">
-        {projects.map((project, index) => (
-          <ProjectBox
-            key={index}
-            image={project.image}
-            title={project.title}
-            skills={project.skills}
-            description={project.description}
-            link={project.link}
-          />
-        ))}
+        {loading
+          ?
+          Array(6)
+            .fill(0)
+            .map((_, index) => <ProjectSkeleton key={`skeleton-${index}`} />)
+          :
+          projects.map((project, index) => (
+            <ProjectBox
+              key={index}
+              image={project.image}
+              title={project.title}
+              skills={project.skills}
+              description={project.description}
+              link={project.link}
+              codeLink={project.codeLink}
+            />
+          ))}
       </div>
     </section>
   );

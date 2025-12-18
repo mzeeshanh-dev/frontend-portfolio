@@ -1,0 +1,46 @@
+.skeleton-box {
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.05);
+
+    border: none !important;
+}
+
+.skeleton-box::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(90deg,
+            rgba(255, 255, 255, 0) 0,
+            rgba(255, 255, 255, 0.2) 20%,
+            rgba(255, 255, 255, 0.5) 60%,
+            rgba(255, 255, 255, 0));
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+body.dark-mode .skeleton-box {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .skeleton-box::after {
+    background-image: linear-gradient(90deg,
+            rgba(255, 255, 255, 0) 0,
+            rgba(255, 255, 255, 0.05) 20%,
+            rgba(255, 255, 255, 0.1) 60%,
+            rgba(255, 255, 255, 0));
+}
+
+
+.skeleton-card {
+    pointer-events: none;
+}

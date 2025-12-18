@@ -1,100 +1,161 @@
 .container {
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
-  background: rgba(8, 8, 8, 0.1);
-  border-radius: 30px;
+  font-family: "Poppins", sans-serif;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
   width: 320px;
-  height: 450px;
-  padding: 12px;
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
-  will-change: transform;
+  min-height: 480px;
+  padding: 16px;
+  cursor: default;
+  /* Changed from pointer so only buttons feel clickable */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .container:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* IMAGE ZOOM SECTION */
+.img-wrapper {
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  /* Clips the zoom */
+  cursor: pointer;
 }
 
 .project-img {
   width: 100%;
-  max-width: 290px;
-  height: 180px;
-  border-radius: 12px;
+  height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.3s ease;
+  /* Smooth zoom speed */
+}
+
+/* ONLY ZOOM WHEN HOVERING THE IMAGE WRAPPER */
+.img-wrapper:hover .project-img {
+  transform: scale(1.12);
 }
 
 .upper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding-bottom: 8px;
+  gap: 15px;
+  padding-bottom: 12px;
 }
 
+/* LANGUAGE BADGES - LIFT EFFECT */
 .skill-list {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
 }
 
 .lang {
-  border: 1px solid #7f6ce0;
-  border-radius: 10px;
-  padding: 5px;
+  border: 1px solid rgba(127, 108, 224, 0.3);
+  border-radius: 8px;
+  padding: 4px 10px;
   font-size: 11px;
-  width: 70px;
-  text-align: center;
-  font-weight: bold;
-  color: #7f6ce0;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px); /* ⚡ Reduced heavy blur */
-  -webkit-backdrop-filter: blur(12px);
-  transition: transform 0.2s ease, background-color 0.2s ease;
-  will-change: transform, background-color;
+  font-weight: 600;
+  color: #6e57e0;
+  background: rgba(110, 87, 224, 0.05);
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .lang:hover {
-  transform: translateY(-2px);
-  background-color: rgba(255, 255, 255, 0.08);
+  transform: translateY(-3px);
+  background-color: #6e57e0;
+  color: #ffffff;
 }
 
 .lower {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-top: 10px;
+  flex: 1;
 }
 
 .project-title {
-  font-size: 22px;
-  margin-bottom: 5px;
-  color: grey;
-  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 700;
 }
 
 .project-description {
-  font-size: 16px;
-  text-align: justify;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  margin-top: auto;
+}
+
+.btnLive button,
+.btnCode button {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s ease;
 }
 
 .btnLive button {
   background: #6e57e0;
   color: white;
-  padding: 10px 22px;
-  font-size: 15px;
-  font-weight: 500;
   border: none;
-  border-radius: 9px;
-  margin-top: 12px;
-  cursor: pointer;
-  transition: opacity 0.2s ease;
 }
 
-.btnLive button:hover {
-  opacity: 0.85;
+
+.btnCode button {
+  background: transparent;
+  color: #6e57e0;
+  border: 1.5px solid #6e57e0;
+}
+
+/* DARK MODE */
+body.dark-mode .container {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .project-title {
+  color: #fff;
+}
+
+body.dark-mode .project-description {
+  color: #ccc;
+}
+
+body.dark-mode .btnCode button {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.btnLive button:hover,
+.btnCode button:hover {
+  opacity: 0.8;
+}
+
+.btnLive button:active,
+.btnCode button:active {
+  scale: 0.9;
 }
