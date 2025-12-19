@@ -38,24 +38,40 @@ export default function Navbar() {
       Array.from({ length: count }, () => ({
         x: Math.random() * w,
         y: Math.random() * h,
-        radius: Math.random() * 1.5,
-        alpha: Math.random() * 0.5 + 0.2,
+        radius: Math.random() * 1.5 + 0.3,
+        baseAlpha: Math.random() * 0.4 + 0.2,
+        phase: Math.random() * Math.PI * 2,
+        speed: 0.06 + Math.random() * 0.08,
       }));
 
     const drawStars = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      if (!darkMode) return;
+
       stars.forEach((s) => {
+        const opacity = s.baseAlpha + Math.sin(s.phase) * 0.2;
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255,255,255,${s.alpha})`;
+        ctx.fillStyle = `rgba(255, 255, 255, ${Math.max(0.1, opacity)})`;
+
+        if (s.radius > 1.4) {
+          ctx.shadowBlur = 4;
+          ctx.shadowColor = "white";
+        } else {
+          ctx.shadowBlur = 0;
+        }
+
         ctx.fill();
       });
     };
 
-    const twinkle = () => {
-      stars.forEach((s) => (s.alpha = Math.random() * 0.5 + 0.2));
+    const animate = () => {
+      stars.forEach((s) => { s.phase += s.speed; });
+      drawStars();
+      animationFrameId = requestAnimationFrame(animate);
     };
 
     const handleResize = () => {
@@ -63,18 +79,11 @@ export default function Navbar() {
       canvas.height = window.innerHeight + navbarHeight;
       gradient = createGradient(canvas.width, canvas.height);
       stars = generateStars(200, canvas.width, canvas.height);
-      drawStars();
     };
 
-    const animate = () => {
-      twinkle();
-      drawStars();
-      animationFrameId = requestAnimationFrame(animate);
-    };
-
-    handleResize();
     window.addEventListener("resize", handleResize);
-    animationFrameId = requestAnimationFrame(animate);
+    handleResize();
+    animate();
 
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -98,17 +107,13 @@ export default function Navbar() {
       lastScrollY.current = y;
 
       const sections = ["home", "about", "skills", "services", "portfolio", "contact"];
-      const scrollPosition = window.scrollY + navbarHeight + 10;
+      const scrollPosition = y + navbarHeight + 10;
 
       for (const section of sections) {
         const el = document.getElementById(section);
-        if (el) {
-          if (
-            scrollPosition >= el.offsetTop &&
-            scrollPosition < el.offsetTop + el.offsetHeight
-          ) {
-            setActiveSection(section);
-          }
+        if (el && scrollPosition >= el.offsetTop && scrollPosition < el.offsetTop + el.offsetHeight) {
+          setActiveSection(section);
+          break;
         }
       }
     };
@@ -125,17 +130,14 @@ export default function Navbar() {
     { icon: "bx-send", label: "Contact Me", to: "#contact" },
   ];
 
-  const navbarBg = darkMode ? "rgba(25,22,39,0.8)" : "#fff";
-  const linkColor = darkMode ? "#fff" : "#191627";
   const hoverColor = "#6E57E0";
+  const currentLinkColor = (to, i) =>
+    activeSection === to.substring(1) || hoveredIndex === i ? hoverColor : (darkMode ? "#fff" : "#191627");
 
   const handleClick = (to) => {
-    const id = to.substring(1);
-    const el = document.getElementById(id);
+    const el = document.getElementById(to.substring(1));
     if (el) {
-      const top = el.offsetTop - navbarHeight;
-      window.scrollTo({ top, behavior: "smooth" });
-      setActiveSection(id);
+      window.scrollTo({ top: el.offsetTop - navbarHeight, behavior: "smooth" });
       setMenuOpen(false);
     }
   };
@@ -144,10 +146,9 @@ export default function Navbar() {
     <>
       <canvas ref={canvasRef} className="star-canvas" />
       <div
-        className={`navbar ${darkMode ? "dark-mode" : ""} ${hideNavbar ? "hidden" : ""
-          }`}
+        className={`navbar ${darkMode ? "dark-mode" : ""} ${hideNavbar ? "hidden" : ""}`}
         style={{
-          backgroundColor: navbarBg,
+          backgroundColor: darkMode ? "rgba(25,22,39,0.8)" : "#fff",
           borderTop: `1px solid ${darkMode ? "#444" : "#ccc"}`,
           height: `${navbarHeight}px`,
           transition: "background-color 0.3s ease, transform 0.3s ease",
@@ -156,9 +157,8 @@ export default function Navbar() {
         <div className="logo">Zeeshan</div>
 
         <div
-          className={`navlinks ${menuOpen ? "active" : ""} ${darkMode ? "dark-mode" : ""
-            }`}
-          style={{ backgroundColor: navbarBg, transition: "0.3s ease" }}
+          className={`navlinks ${menuOpen ? "active" : ""} ${darkMode ? "dark-mode" : ""}`}
+          style={{ backgroundColor: darkMode ? "rgba(25,22,39,0.8)" : "#fff" }}
         >
           <ul>
             {navItems.map(({ icon, label, to }, i) => (
@@ -167,34 +167,11 @@ export default function Navbar() {
                   href={to}
                   onMouseEnter={() => setHoveredIndex(i)}
                   onMouseLeave={() => setHoveredIndex(null)}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleClick(to);
-                  }}
+                  onClick={(e) => { e.preventDefault(); handleClick(to); }}
                   className={activeSection === to.substring(1) ? "active" : ""}
-                  style={{
-                    color:
-                      activeSection === to.substring(1)
-                        ? hoverColor
-                        : hoveredIndex === i
-                          ? hoverColor
-                          : linkColor,
-                    transition: "color 0.2s ease",
-                  }}
+                  style={{ color: currentLinkColor(to, i), transition: "color 0.2s ease" }}
                 >
-                  <i
-                    className={`bx ${icon}`}
-                    style={{
-                      fontSize: 24,
-                      color:
-                        activeSection === to.substring(1)
-                          ? hoverColor
-                          : hoveredIndex === i
-                            ? hoverColor
-                            : linkColor,
-                      transition: "color 0.2s ease",
-                    }}
-                  ></i>
+                  <i className={`bx ${icon}`} style={{ fontSize: 24, color: currentLinkColor(to, i) }}></i>
                   <br />
                   {label}
                 </a>
@@ -203,15 +180,10 @@ export default function Navbar() {
           </ul>
         </div>
 
-        {/* Icons */}
         <div className="icons">
           <div className="display-mode" onClick={() => setDarkMode(!darkMode)}>
-            <i
-              className={`bx ${darkMode ? "bx-moon" : "bxs-sun"}`}
-              style={{ color: darkMode ? "#fff" : "#6E57E0" }}
-            ></i>
+            <i className={`bx ${darkMode ? "bx-moon" : "bxs-sun"}`} style={{ color: darkMode ? "#fff" : "#6E57E0" }}></i>
           </div>
-
           <div className="menu" onClick={() => setMenuOpen(!menuOpen)}>
             <i className={`bx ${menuOpen ? "bx-x" : "bx-grid"}`}></i>
           </div>
