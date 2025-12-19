@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
+
+# Direct link to your sitemap to help bots find it faster
 Sitemap: https://m-zeeshan-haider.vercel.app/sitemap.xml
