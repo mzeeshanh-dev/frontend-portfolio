@@ -61,13 +61,14 @@ const projects = [
   },
   {
     image: img2,
-    title: "Coffee Bean Shop",
-    skills: ["React Js", "CSS", "AOS", "Bootstrap", "figma"],
+    title: "New Year Vibes",
+    skills: ["React Js", "CSS", "canvas-confetti", "react-snowfall", "Vercel Analytics", "Vite"],
     description:
-      "Built an animated coffee shop website with React and CSS, featuring smooth UI, interactive user experience, and modern design aesthetics.",
-    link: "https://bean-scene-xi.vercel.app/",
-    codeLink: "https://github.com/mzeeshanh-dev/figma-to-code-coffee-bean",
-  },
+      "A modern New Year countdown app with React, featuring live countdown to January 1, 2026, snowfall animation, fullscreen mode, confetti celebration, and responsive glassmorphism UI.",
+    link: "https://newyearvibes.vercel.app/",
+    codeLink: "https://github.com/mzeeshanh-dev/newyearvibes",
+  }
+  ,
   {
     image: img3,
     title: "E-Commerce Website",
